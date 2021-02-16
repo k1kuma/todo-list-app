@@ -1,5 +1,6 @@
-# Getting Started with Create React App
+# Simple ToDo List App
 
+Simple ToDo List App created using MERN Stack, featuring MongoDB Atlas. 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
