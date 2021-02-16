@@ -4,7 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+To kick-off the back-end server, go to the backend directory and run:
+
+### `nodemon server.js`
+
+In the project directory, to kick off web application you can run:
 
 ### `npm start`
 
