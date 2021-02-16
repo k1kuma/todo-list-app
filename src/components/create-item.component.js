@@ -63,8 +63,9 @@ export default class CreateItem extends Component {
       duedate: this.state.duedate
     };
 
-    axios.post('http://localhost:4000/items/create-item', itemObj)
-      .then(res => console.log(res.data));
+    axios.post('http://localhost:4000/items/create-item', itemObj).then(res => 
+      console.log(res.data)
+    );
 
     this.setState({title: '', description: '', status: 'backlog', duedate: ''});
   }
@@ -103,11 +104,15 @@ export default class CreateItem extends Component {
             <option>done</option>
           </Form.Control>
         </Form.Group>
-  
+
+        {/* 
+        // Reference URLs below to get calendar icon replacing dropdown bar for calendar.
+        // https://www.npmjs.com/package/react-bootstrap-icons
+        // https://icons.getbootstrap.com/icons/calendar-check-fill/
+        */}
         <Form.Group controlId="Duedate">
           <Form.Label>Due Date</Form.Label>
           <Datetime
-            // isValidDate={ valid }
             timeFormat={false}
             onChange={this.onChangeItemDuedate}
           />
