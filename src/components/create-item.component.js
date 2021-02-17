@@ -10,11 +10,11 @@ import axios from 'axios';
 
 // set-up to dis-allow users from picking a date
 // prior to current date on a todo list item.
-// import moment from 'moment';
-// const yesterday = moment().subtract( 1, 'day' );
-// const valid = function( current ){
-//     return current.isAfter( yesterday );
-// };
+import moment from 'moment';
+const yesterday = moment().subtract( 1, 'day' );
+const valid = function( current ){
+    return current.isAfter( yesterday );
+};
 
 export default class CreateItem extends Component {
 
@@ -118,11 +118,13 @@ export default class CreateItem extends Component {
           <Datetime
             timeFormat={false}
             onChange={this.onChangeItemDuedate}
+            isValidDate={valid}
+            closeOnSelect={ true }
           />
         </Form.Group>
 
         <Button variant="danger" size="lg" block="block" type="submit">
-            Save
+          Save
         </Button>
 
       </Form>
