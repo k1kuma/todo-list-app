@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import Datetime from 'react-datetime';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default class EditItem extends Component {
@@ -116,14 +115,14 @@ export default class EditItem extends Component {
           />
         </Form.Group>
 
-        <Button variant="danger" size="lg" block="block" type="submit">
+        {/* <Button variant="danger" size="lg" block="block" type="submit">
           <Link to={"/item-list"} className="nav-link">
             Save
           </Link>
-        </Button>
-        {/* <Button variant="danger" size="lg" block="block" type="submit">
-          Update Item
         </Button> */}
+        <Button variant="danger" size="lg" block="block" type="submit">
+          Update
+        </Button>
       </Form>
     </div>);
   }

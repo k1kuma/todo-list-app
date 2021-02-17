@@ -68,6 +68,9 @@ export default class CreateItem extends Component {
     );
 
     this.setState({title: '', description: '', status: 'backlog', duedate: ''});
+
+    // Redirect to Item List 
+    this.props.history.push('/item-list')
   }
 
   render() {
@@ -119,9 +122,7 @@ export default class CreateItem extends Component {
         </Form.Group>
 
         <Button variant="danger" size="lg" block="block" type="submit">
-          <Link to={"/item-list"} className="nav-link">
             Save
-          </Link>
         </Button>
 
       </Form>
