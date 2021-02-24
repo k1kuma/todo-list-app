@@ -1,6 +1,7 @@
 ## Project Name: To Do List
 Objective:
 Build a To Do List-type web application or API that meets the challenge requirements
+
 	
 ##### Challenge Requirements: 
 Choose to either build an Front-end App OR Back-end API. Whatever you build must fulfil these requirements...
@@ -16,6 +17,7 @@ Status (i.e. Pending, Done)
 Due Date
 Make it simple for the user to track the status of multiple items as well as remember when things are due
 Must work on a desktop web browser
+
 
 ##### Bonus Features:
 **Note:** Your application may have these features. Implement all, some, or none of them - it’s up to you. You’re also free to come up with your own features!
