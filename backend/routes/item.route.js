@@ -28,7 +28,7 @@ router.route('/').get((req, res) => {
   })
 })
 
-// Get Single Item
+// Edit Item
 router.route('/edit-item/:id').get((req, res) => {
   itemSchema.findById(req.params.id, (error, data) => {
     if (error) {
@@ -46,7 +46,6 @@ router.route('/update-item/:id').put((req, res, next) => {
   }, (error, data) => {
     if (error) {
       return next(error);
-      console.log(error)
     } else {
       res.json(data)
       console.log('Item updated successfully !')

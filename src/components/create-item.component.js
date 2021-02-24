@@ -1,12 +1,11 @@
-import React, {Component} from "react";
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button';
-import "react-datetime/css/react-datetime.css";
-import { Link } from 'react-router-dom';
-
-// module to create date-picker element https://github.com/arqex/react-datetime
-import Datetime from 'react-datetime';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Datetime from 'react-datetime';
+import Form from 'react-bootstrap/Form';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import React, { Component } from "react";
+import "react-datetime/css/react-datetime.css";
 
 // set-up to dis-allow users from picking a date
 // prior to current date on a todo list item.
@@ -68,65 +67,72 @@ export default class CreateItem extends Component {
     );
 
     this.setState({title: '', description: '', status: 'backlog', duedate: ''});
-
-    // Redirect to Item List 
-    this.props.history.push('/item-list')
+    this.props.history.push('/');
   }
 
   render() {
     return (<div class="form-wrapper">
       <Form onSubmit={this.onSubmit}>
-        <Form.Group controlId="Title">
-          <Form.Label>Title</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            value={this.state.title}
-            onChange={this.onChangeItemTitle}
-          />
-        </Form.Group>
-
-        <Form.Group controlId="Description">
-          <Form.Label>Description</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            value={this.state.description}
-            onChange={this.onChangeItemDescription}
-          />
-        </Form.Group>
-
-        <Form.Group controlId="Status">
-          <Form.Label>Status</Form.Label>
-          <Form.Control
-            as="select"
-            value={this.state.status}
-            onChange={this.onChangeItemStatus}>
-            <option>backlog</option>
-            <option>pending</option>
-            <option>done</option>
-          </Form.Control>
-        </Form.Group>
-
-        {/* 
-        // Reference URLs below to get calendar icon replacing dropdown bar for calendar.
-        // https://www.npmjs.com/package/react-bootstrap-icons
-        // https://icons.getbootstrap.com/icons/calendar-check-fill/
-        */}
-        <Form.Group controlId="Duedate">
-          <Form.Label>Due Date</Form.Label>
-          <Datetime
-            timeFormat={false}
-            onChange={this.onChangeItemDuedate}
-            isValidDate={valid}
-            closeOnSelect={ true }
-          />
-        </Form.Group>
-
-        <Button variant="danger" size="lg" block="block" type="submit">
-          Save
-        </Button>
-
+        <Card style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Title>
+              <Form.Group controlId="Title">
+              <Form.Control
+                required
+                type="text"
+                placeholder="Title" 
+                value={this.state.title}
+                onChange={this.onChangeItemTitle}
+              />
+              </Form.Group>
+            </Card.Title>
+            <Form.Group controlId="Status">
+              <Form.Control
+                as="select"
+                value={this.state.status}
+                onChange={this.onChangeItemStatus}>
+                <option>backlog</option>
+                <option>pending</option>
+                <option>done</option>
+              </Form.Control>
+            </Form.Group>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            <ListGroupItem>
+              <Form.Group controlId="Description">
+                <Form.Control
+                  plaintext
+                  as="textarea"
+                  required
+                  type="text"
+                  placeholder="description"
+                  bssize="large"
+                  value={this.state.description}
+                  onChange={this.onChangeItemDescription}
+                />
+              </Form.Group>
+            </ListGroupItem>
+            <ListGroupItem>
+              {/* 
+              // Reference URLs below for getting calendar icon replacing dropdown bar for calendar.
+              // https://www.npmjs.com/package/react-bootstrap-icons
+              // https://icons.getbootstrap.com/icons/calendar-check-fill/
+              */}
+              <Form.Group controlId="Duedate">
+                <Form.Label>Due Date</Form.Label>
+                <Datetime
+                  timeFormat={false}
+                  onChange={this.onChangeItemDuedate}
+                  isValidDate={valid}
+                  closeOnSelect={ true }
+                />
+              </Form.Group>
+            </ListGroupItem>
+          </ListGroup>
+          <Button variant="danger" size="lg" block="block" type="submit">
+            Save
+          </Button>
+        </Card>
       </Form>
     </div>);
   }
