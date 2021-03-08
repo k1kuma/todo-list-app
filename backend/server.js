@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoClient = require("mongodb").MongoClient;
 const mongoose = require('mongoose');
+const mongoClient = require("mongodb").MongoClient;
 const objectId = require("mongodb").ObjectID;
 
 const DATABASE_NAME = "items";
@@ -19,7 +19,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use('/items', itemRoute) // express route
 
-let database, collection;
 const port = process.env.PORT || 4000; // PORT
 
 app.listen(port, () => {
@@ -30,8 +29,7 @@ app.listen(port, () => {
     useUnifiedTopology: true, 
     dbName: 'items' 
   }).then((client) => {
-    console.log('Database sucessfully connected!')
-    console.log('Connected to `' + DATABASE_NAME + '`!');
+    console.log(DATABASE_NAME + ' Database sucessfully connected!')
   },
     error => {
       console.log('Could not connect to database : ' + error)
