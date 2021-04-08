@@ -7,11 +7,9 @@ export default function ItemList() {
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:4000/items/')
-    .then(res => {
+    axios.get('http://localhost:4000/items/').then(res => {
       setItems(res.data)
-    })
-    .catch((error) => {
+    }).catch((error) => {
       console.log(error);
     })
   },[])
