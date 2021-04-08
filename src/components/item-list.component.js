@@ -11,10 +11,9 @@ export default function ItemList() {
     .then(res => {
       setItems(res.data)
     })
-  .catch((error) => {
-    console.log(error);
-  })
-
+    .catch((error) => {
+      console.log(error);
+    })
   },[])
 
   const deleteItem = (itemId) => {
